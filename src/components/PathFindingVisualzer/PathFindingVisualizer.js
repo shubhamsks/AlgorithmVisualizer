@@ -1,5 +1,5 @@
 import  React,{Component} from 'react';
-import classes from './PathFindingVisualizer.module.css';
+
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from "../../algorithms/dijkstra";
 import {breadthFirstSearch} from "../../algorithms/breadthFirstSearch";
@@ -30,7 +30,7 @@ class PathFindingVisualizer extends  Component{
             isVisited:false,
         };
         return node;
-    }
+    };
 
     componentDidMount() {
         const grid = [];
@@ -45,6 +45,7 @@ class PathFindingVisualizer extends  Component{
             grid:grid,
         });
     }
+    //Visualization part below
     animateAlgorithms(visitedNodesInOrder, nodesInShortestPathOrder) {
         for (let i =  1; i <= visitedNodesInOrder.length - 1; i++) {
             if (i === visitedNodesInOrder.length - 1) {
@@ -69,6 +70,14 @@ class PathFindingVisualizer extends  Component{
             }, 50 * i);
         }
     }
+    visualizeAlgo = (algo)=>{
+        if(algo === 'Breadth First Search'){
+            this.visualizeBreadthFirstSearch();
+        }
+        if(algo === 'Dijkstra'){
+            this.visualizeDijkstra();
+        }
+    };
 
     visualizeDijkstra = () => {
         const {grid} = this.state;
@@ -86,6 +95,8 @@ class PathFindingVisualizer extends  Component{
         const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
         this.animateAlgorithms(visitedNodesInOrder, nodesInShortestPathOrder);
     };
+    //Visualization part end
+    //Handling part below
     handleMouseDown = (row, col)=>{
         const newGrid = this.getNewGridWithBallToggled(this.state.grid,row,col);
         if(newGrid[row][col].isFinish){
@@ -111,6 +122,8 @@ class PathFindingVisualizer extends  Component{
         }
         this.setState({mouseIsPressed:false, changeEndNode:false});
     };
+
+    //Handling end
     getNewGridWithBallToggled = (grid,row,col)=>{
         const newGrid = grid.slice(); //copy
         console.log(newGrid[row][col]);
@@ -122,22 +135,46 @@ class PathFindingVisualizer extends  Component{
         newGrid[row][col] = newNode;
         return newGrid;
     };
-    changeEndNode=(row,col,grid)=>{
+    clearPath  =()=>{
+        const {grid} = this.state;
+        for(const row of grid){
+            for(const node of row){
+                if(!node.isWall && !node.isStart && !node.isFinish){
+                    document.getElementById(`node-${node.row}-${node.col}`).className ='node';
+                    grid[node.row][node.col].isVisited=false;
+                }
+            }
+        }
+        this.setState({grid:grid});
+    };
+    clearGrid  =()=>{
+        console.log('cleargrid ')
+        const {grid} = this.state;
+        for(const row of grid){
+            for(const node of row){
+                if(!node.isStart && !node.isFinish){
+                    document.getElementById(`node-${node.row}-${node.col}`).className ='node';
+                    grid[node.row][node.col].isVisited=false;
+                    grid[node.row][node.col].isWall = false;
+                }
+            }
+        }
+        this.setState({grid:grid});
 
     };
-
     render() {
         const {grid}= this.state;
         return <div>
-            {/*<button onClick={this.visualizeBreadthFirstSearch}>Visualize bfs</button>*/}
-            {/*<button onClick={this.visualizeDijkstra}>Visualize dijkstra</button>*/}
-            <Navbar clicked ={this.visualizeDijkstra} algorithm = 'Dijkstra'/>
+            <Navbar
+                clickedAlgo ={(algo)=>this.visualizeAlgo(algo)}
+                clickedClearPath ={this.clearPath}
+                clickedClearGrid = {this.clearGrid}/>
             <div>
                 {grid.map((row, rowIdx) => {
                     return (
                         <div key={rowIdx}>
                             {row.map((node, nodeIdx) => {
-                                const {row,col, isFinish, isStart, isWall} = node;
+                                const {row,col, isFinish, isStart, isWall,isVisited} = node;
                                 return (
                                     <Node
                                         key = {nodeIdx}
@@ -146,6 +183,7 @@ class PathFindingVisualizer extends  Component{
                                         isStart = {isStart}
                                         isFinish = {isFinish}
                                         isWall = {isWall}
+                                        isVisited = {isVisited}
                                         onMouseDown = {(row, col)=>this.handleMouseDown(row,col)}
                                         onMouseEnter= {(row,col)=>this.handleMouseEnter(row,col)}
                                         onMouseUp = {(row,col)=>this.handleMouseUp(row,col)}

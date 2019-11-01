@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="837ce6a6-851d-4bd0-bd8e-a4182467cb1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/algorithms/Astar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/algorithms/breadthFirstSearch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/algorithms/dijkstra.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/Layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/DropDown/DropDown.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/dijkstra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/dijkstra.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +79,8 @@
       <updated>1572425720122</updated>
       <workItem from="1572425721406" duration="6661000" />
       <workItem from="1572446804240" duration="12117000" />
-      <workItem from="1572525113971" duration="23807000" />
+      <workItem from="1572525113971" duration="24062000" />
+      <workItem from="1572601384875" duration="14911000" />
     </task>
     <servers />
   </component>

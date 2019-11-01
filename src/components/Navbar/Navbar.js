@@ -1,5 +1,12 @@
 import  React from 'react';
-import './Navbar.css'
+import './Navbar.css';
+import Dropdown from './DropDown/DropDown';
+
+const ALGORITHMS = {
+    dkstr:'Dijkstra',
+    bfs:'Breadth First Search',
+};
+
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -7,27 +14,69 @@ class Navbar extends React.Component{
             selectedAlgorithm:null,
         }
     }
-    handleMouseEnter=()=>{
-
+    // handleMouseEnter=()=>{
+    //
+    // };
+    algorithmSelectorHandler =(key)=>{
+      console.log(key);
+      const algorithm = ALGORITHMS[key];
+      this.setState({selectedAlgorithm:algorithm});
     };
-    algorithmSelectorHandler =(event)=>{
-      console.log(event.target);
-      console.log('here')
+    handleAlgoRithmSelection = ()=>{
+        const  algo = this.state.selectedAlgorithm;
+        this.props.clickedAlgo(algo);
     };
    render() {
+       const algorithmOptions = [
+           {
+               text:'Dijkstra',
+               value:'dkstra',
+               className:'dk',
+               key:'dk',
+               onClick:()=>this.algorithmSelectorHandler('dkstr')
+
+           },
+           {
+               text: 'Breadth first search',
+               className: 'bfs',
+               key: 'bfs',
+               value:'bfs',
+               onClick:()=>this.algorithmSelectorHandler('bfs'),
+           }
+       ];
+
        return(
-           <nav>
-               <div className='dropdown'>
-                   <div className='algorithms'>
-                       <button onClick={this.algorithmSelectorHandler}>Select Algorithm</button>
-                       <ul>
-                           <button onClick={this.algorithmSelectorHandler}><p >Dijkstra</p></button>
-                           <li onClick={this.algorithmSelectorHandler}><p>Breadth First Search</p></li>
-                           <li onClick={this.algorithmSelectorHandler}><p >Dijkstra</p></li>
-                       </ul>
-                   </div>
-                   <button onClick={this.props.clicked}>Visualize {this.props.algorithm}</button>
-               </div>
+           <nav className='Nav'>
+
+               <ul>
+                   <li>
+                       <h2 className='brand'>Path Finding Algorihtm visualizer</h2>
+                   </li>
+                    <li><div className='dropdown'>
+                        <Dropdown text={this.state.selectedAlgorithm} algorithmOptions = {algorithmOptions}/>
+                    </div>
+                    </li>
+               <li>
+                   {
+                       this.state.selectedAlgorithm ?
+                       <button
+                           onClick={this.handleAlgoRithmSelection}
+                       >
+                           Visualize {this.state.selectedAlgorithm}
+                       </button> :
+                       <button disabled={true}>
+                           Visualize
+                       </button>
+
+                   }
+                   <button onClick={this.props.clickedClearPath}>
+                       Clear path
+                   </button>
+                   <button onClick={this.props.clickedClearGrid}>
+                       Clear Grid
+                   </button>
+               </li>
+               </ul>
            </nav>
        );
    }

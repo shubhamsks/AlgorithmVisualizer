@@ -1,60 +1,51 @@
-*{
+.Nav{
+    background-color: white;
+    border:1px solid gray;
+    box-shadow: #d5d5d5;
+    height: auto;
     margin:0;
-    padding:0;
-    box-sizing: border-box;
+}
+.Nav ul{
+    justify-items: auto;
+    display: flex;
+    list-style: none;
+
+}
+.Nav li{
+    margin:5px;
 }
 .dropdown{
-    height: 10vh;
-    background-color: #282c34;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.algorithms{
-    position: relative;
-}
-.algorithms ul{
-    position: absolute;
-    background-color: #282c34;
-    margin-top:10px;
-    width:300px;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
-    transition:all 0.4s ease;
+    width: 400px;
 }
 
-.algorithms p{
-    color: white;
-    padding:2px;
-    border-radius: 5px;
-}
-.algorithms p:hover{
-    background-color: #33eaff;
-    cursor: pointer;
-    -webkit-transition: 0.8s;
-}
-.dropdown button{
+button{
     background-color: #33eaff;
     border-radius: 5px;
     border:1px solid #33eaff;
-    color:white;
+    color: #282c34;
     padding:10px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
+    margin-right: 10px;
 }
-.dropdown button:hover{
+button:hover{
     color: #282c34;
     background-color: #33eaff;
     cursor: pointer;
     -webkit-transition: 0.7s;
 }
-.algorithms button:focus+ul{
-    opacity: 1;
-    pointer-events: all;
+button:disabled{
+    cursor: not-allowed;
+}
+
+.brand{
+    border:1px solid #282c34;
+    padding:4px;
+    border-radius: 5px;
+}
+.brand:hover{
+    color: white;
+    background-color: #282c34;
+    cursor: pointer;
+    -webkit-transition: 0.7s;
 }
