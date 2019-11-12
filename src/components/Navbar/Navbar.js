@@ -75,6 +75,9 @@ class Navbar extends React.Component{
                    <button onClick={this.props.clickedClearGrid}>
                        Clear Grid
                    </button>
+                   <button onClick={this.props.clickedMakeRandomPattern}>
+                       Make Random Pattern
+                   </button>
                </li>
                </ul>
            </nav>

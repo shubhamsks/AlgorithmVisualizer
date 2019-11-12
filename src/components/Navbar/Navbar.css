@@ -49,3 +49,9 @@ button:disabled{
     cursor: pointer;
     -webkit-transition: 0.7s;
 }
+@media(max-width: 768px) {
+    *{
+        margin:0;
+        font-size: 30.006px;
+    }
+}

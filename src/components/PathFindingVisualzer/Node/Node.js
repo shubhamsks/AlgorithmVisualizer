@@ -8,18 +8,10 @@ export  default  class Node extends Component {
     }
     render(){
         const {isStart, isFinish, isWall, row, col, onMouseDown, onMouseEnter, onMouseUp,isVisited} = this.props;
-        const extraClass = isStart ? 'node-start': isFinish ? 'node-finish': isWall ? 'node-wall':isVisited?'node-visited':'';
-        // if(row === 10 && col === 5){
-        //     console.log(row,col);
-        //     console.log(extraClass);
-        // }
+        const extraClass = isStart ? 'node-start': isFinish ? 'node-finish': isWall ? 'node-wall':isVisited? 'node-visited':'';
 
         let classes = 'node ' +extraClass;
-        // if(row === 10 && col === 45){
-        //     console.log(row,col);
-        //     console.log(extraClass);
-        //     console.log(classes)
-        // }
+
         return(
             <div
                 onMouseDown={()=>onMouseDown(row, col)}

@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="837ce6a6-851d-4bd0-bd8e-a4182467cb1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar/DropDown/DropDown.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/dijkstra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/dijkstra.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/Node/Node.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PathFindingVisualzer/PathFindingVisualizer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +24,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../routing--assignment-problem" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,6 +76,8 @@
       <workItem from="1572446804240" duration="12117000" />
       <workItem from="1572525113971" duration="24062000" />
       <workItem from="1572601384875" duration="14911000" />
+      <workItem from="1572626246755" duration="8102000" />
+      <workItem from="1572769566634" duration="230000" />
     </task>
     <servers />
   </component>

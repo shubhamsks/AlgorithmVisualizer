@@ -1,10 +1,20 @@
-.node {
-    width: 25px;
-    height: 25px;
-    outline: 1px solid #33eaff;
-    display: inline-block;
+*{
+    margin:0;
+    padding:0;
 }
-
+.node {
+    width: 20px;
+    height: 20px;
+    outline: 1px solid rgba(42, 207, 226, 0.55);
+    display: inline-flex;
+}
+@media(max-width: 768px) {
+    .node{
+        width: 7px;
+        height: 7px;
+        margin:0;
+    }
+}
 .node-finish {
     background-color: #1e2ffc;
 }
@@ -47,12 +57,33 @@
         background-color: #33eaff;
     }
 }
-
-.node-wall {
-    background-color: rgb(71, 23, 53);
+.node-wall{
+    animation-name: wallAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function:ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
-.node-shortest-path {
+@keyframes wallAnimation {
+    0% {
+      transform: scale(.3);
+      background-color: rgb(12, 53, 71);
+    }
+  
+    50% {
+      transform: scale(1.2);
+      background-color: rgb(12, 53, 71);
+    }
+  
+    100% {
+      transform: scale(1.0);
+      background-color: rgb(12, 53, 71);
+    }
+  }
+.node-shortest-path {   
     animation-name: shortestPath;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
