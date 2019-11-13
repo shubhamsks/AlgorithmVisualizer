@@ -13,13 +13,13 @@ export  default  class Node extends Component {
         let classes = 'node ' +extraClass;
 
         return(
-            <div
+            <td
                 onMouseDown={()=>onMouseDown(row, col)}
                 onMouseEnter={()=> onMouseEnter(row, col)}
                 onMouseUp={()=> onMouseUp(row,col)}
                 id={`node-${row}-${col}`}
                 className= {classes} >
-            </div>
+            </td>
         );
     }
 }

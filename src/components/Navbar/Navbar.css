@@ -4,11 +4,14 @@
     box-shadow: #d5d5d5;
     height: auto;
     margin:0;
+    width:100%;
+    justify-content: space-around;
 }
 .Nav ul{
     justify-items: auto;
     display: flex;
     list-style: none;
+    justify-content: space-between;
 
 }
 .Nav li{
@@ -19,23 +22,25 @@
 }
 
 button{
-    background-color: #33eaff;
-    border-radius: 5px;
-    border:1px solid #33eaff;
+    background-color: white;
+    border:1px solid #282c34;
     color: #282c34;
-    padding:10px;
+    padding:5px;
     font-weight: bold;
     font-size: 15px;
-    margin-right: 10px;
+    margin: 5px;
+    height:100%;
+    outline:none;
 }
 button:hover{
-    color: #282c34;
-    background-color: #33eaff;
+    color:white;
+    background-color:#282c34;
     cursor: pointer;
-    -webkit-transition: 0.7s;
+    outline:none;
 }
 button:disabled{
     cursor: not-allowed;
+    background-color:#eee;
 }
 
 .brand{

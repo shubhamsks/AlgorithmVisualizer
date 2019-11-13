@@ -5,8 +5,8 @@
 .node {
     width: 20px;
     height: 20px;
-    outline: 1px solid rgba(42, 207, 226, 0.55);
-    display: inline-flex;
+    outline: 1px solid rgba(39, 132, 143, 0.212);
+    /* border:1px solid rgb(12, 53, 71); */
 }
 @media(max-width: 768px) {
     .node{
@@ -25,6 +25,7 @@
 
 .node-visited {
     animation-name: visitedAnimation;
+    outline: 1px solid #33eaff;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
     animation-delay: 0ms;
@@ -58,6 +59,7 @@
     }
 }
 .node-wall{
+    outline: 1px solid rgb(12, 53, 71);
     animation-name: wallAnimation;
     animation-duration: 0.3s;
     animation-timing-function:ease-out;
@@ -92,6 +94,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-play-state: running;
+    outline:1px solid #ffee33;
 }
 
 @keyframes shortestPath {

@@ -10,7 +10,7 @@ let START_NODE_ROW = 12;
 let START_NODE_COL = 17;
 let FINISH_NODE_ROW = 12;
 let FINISH_NODE_COL  = 45;
-const hoverdNodes = [];
+let hoverdNodes = [];
 class PathFindingVisualizer extends  Component{
     constructor(props) {
         super(props);
@@ -35,6 +35,9 @@ class PathFindingVisualizer extends  Component{
     };
     // Creating initial grid with start and end node( No walls) when this component gets mount
     componentDidMount() {
+        this.createInitialGrid();
+    }
+    createInitialGrid =()=>{
         const grid = [];
         for(let row = 0; row < 25; row++){
             const currentRow =[];
@@ -88,7 +91,7 @@ class PathFindingVisualizer extends  Component{
     };
 
     visualizeDijkstra = () => {
-        const {grid} = this.state;
+        const grid = this.state.grid.slice();
         const startNode = grid[START_NODE_ROW][START_NODE_COL];
         const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
         const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
@@ -96,7 +99,7 @@ class PathFindingVisualizer extends  Component{
         this.animateAlgorithms(visitedNodesInOrder, nodesInShortestPathOrder);
     };
     visualizeBreadthFirstSearch = () => {
-        const {grid} = this.state;
+        const grid = this.state.grid.slice();
         const startNode = grid[START_NODE_ROW][START_NODE_COL];
         const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
         const visitedNodesInOrder = breadthFirstSearch(grid, startNode, finishNode);
@@ -115,8 +118,11 @@ class PathFindingVisualizer extends  Component{
             this.setState({changeEndNode:true})
         }
         const node = newGrid[row][col];
-        document.getElementById(`node-${node.row}-${node.col}`).className='node node-wall';
-        hoverdNodes.push({row:row,col:col});
+        if(!node.isFinish && !node.isStart){
+            document.getElementById(`node-${node.row}-${node.col}`).className='node node-wall';
+            hoverdNodes.push({row:row,col:col});
+        }
+        
         this.setState({mouseIsPressed:true});
     };
     handleMouseEnter = (row,col)=>{
@@ -124,8 +130,10 @@ class PathFindingVisualizer extends  Component{
                 if(!this.state.mouseIsPressed) return;
                 const newGrid = this.getNewGridWithBallToggled(this.state.grid, row, col);
                 const node = newGrid[row][col];
-                document.getElementById(`node-${node.row}-${node.col}`).className='node node-wall';
-                hoverdNodes.push({row:row,col:col});
+                if(!node.isStart && !node.isFinish){
+                    document.getElementById(`node-${node.row}-${node.col}`).className='node node-wall';
+                    hoverdNodes.push({row:row,col:col});
+                }
                 // this.setState({grid:newGrid});
             }
     };
@@ -140,6 +148,7 @@ class PathFindingVisualizer extends  Component{
         for(const node of hoverdNodes){
             newGrid[node.row][node.col].isWall = true;
         }
+        hoverdNodes = [];
         this.setState({mouseIsPressed:false, changeEndNode:false,grid:newGrid});
     };
 
@@ -158,37 +167,28 @@ class PathFindingVisualizer extends  Component{
         return newGrid;
     };
     // this method will clear the path and algorithm visited part 
-    clearPath  =()=>{
+    clearPath  = () => {
         const grid = this.state.grid.slice();
         for(const row of grid){
             for(const node of row){
                 if(!node.isWall && !node.isStart && !node.isFinish && node.isVisited){
                     document.getElementById(`node-${node.row}-${node.col}`).className ='node';
-                    grid[node.row][node.col].isVisited=!grid[node.row][node.col].isVisited;
+                    grid[node.row][node.col].isVisited=false;
                 }
             }
         }
         this.setState({grid:grid});
     };
     //This method is used to clear the grid after a path is visualized it clears both walls and path
-    clearGrid  =()=>{
-        const grid = this.state.grid.slice();
-        for(const row of grid){
-            for(const node of row){
-                if(!node.isStart && !node.isFinish){
-                    document.getElementById(`node-${node.row}-${node.col}`).className ='node';
-                    grid[node.row][node.col].isVisited=false;
-                    grid[node.row][node.col].isWall = false;
-                }
-            }
-        }
-        this.setState({grid:grid});
+    clearGrid  = () => {
+        this.clearPath();
+        this.createInitialGrid();
 
     };
     // This method is used to create random patterns in the grid with walls
     createRandomPatters=()=>{
         // this.clearGrid();
-        const {grid} = this.state;
+        const grid = this.state.grid.slice();
         const rows = [];
         for(let i = 0; i < 20; i++){
             rows.push(parseInt(Math.random()*i));
@@ -268,10 +268,10 @@ class PathFindingVisualizer extends  Component{
                 clickedClearGrid = {this.clearGrid}
                 clickedMakeRandomPattern  = {this.createStairCasePattern}
                 />
-            <div>
+            <table>
                 {grid.map((row, rowIdx) => {
                     return (
-                        <div key={rowIdx}>
+                        <tr key={rowIdx}>
                             {row.map((node, nodeIdx) => {
                                 const {row,col, isFinish, isStart, isWall,isVisited} = node;
                                 return (
@@ -289,10 +289,10 @@ class PathFindingVisualizer extends  Component{
                                         />
                                 );
                             })}
-                        </div>
+                        </tr>
                     );
                 })}
-            </div>
+            </table>
         </div>
     }
 }

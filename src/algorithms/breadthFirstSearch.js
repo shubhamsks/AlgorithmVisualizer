@@ -4,9 +4,8 @@ export const breadthFirstSearch = (grid,source, destination)=>{
      queue.push(source);
      while (queue.length !== 0){
          let node = queue.shift();
-         console.log(node);
          if(node.isWall)continue;
-         if(node === destination)return visitedNodesInOrder;
+         if(node.isFinish)return visitedNodesInOrder;
          updateUnvisitedNeighbors(node,grid,queue);
          node.isVisited = true;
          visitedNodesInOrder.push(node);
